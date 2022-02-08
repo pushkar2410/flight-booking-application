@@ -1,0 +1,60 @@
+<p>bookticket works!</p>
+
+Flight ID is - {{flightId.flightId}}
+
+<h2 style="text-align: center;">Fill Your Details for booking</h2>
+<button routerLink="/userService">Go to User Service</button>
+<form [formGroup]= "passengerForm" class="container-sm p-1 my-5 border" (ngSubmit)="onSubmit()">
+
+    <div class="form-group form-control-sm">
+        <label for="exampleInputNumber">Flight Number</label>
+        <input type="number" class="form-control input-sm" value={{flightId.flightId}} required
+            [(ngModel)]= "bookingReq.flightNo" name="flightNo"  readonly
+            id="exampleInputNumber">
+    </div>
+
+    <div class="form-group form-control-sm">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" required [(ngModel)]= "bookingReq.name" 
+            name="name" id="name" placeholder="Enter your name">
+    </div>
+
+    <div class="form-group form-control-sm">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" required [(ngModel)]= "bookingReq.email" name="email"  id="email"
+            placeholder="Enter your email">
+    </div>
+
+
+    <div class="form-group form-control-sm" formArrayName="passengers">
+        <label for="name">Enter Passenger Details</label>
+        <div *ngFor="let passenger of passengers().controls; let i = index;" required [(ngModel)]= "bookingReq.passengers" >
+            <div [formGroupName]="i">
+                <input formControlName="firstName" placeholder="First name">
+                <input formControlName="lastName" placeholder="Last name">
+                <input formControlName="gender" placeholder="Gender">
+                <input formControlName="age" placeholder="Age">
+                <input formControlName="seatNo" placeholder="Seat NO">
+            </div>
+        </div>
+        <button type="button" (click)="addPassenger()">Add Passenger</button>
+    </div>
+
+
+    <div class="form-group form-control-sm">
+        <label for="noOfPassenger">noOfPassenger</label>
+        <input type="text" class="form-control" required [(ngModel)]= "bookingReq.noOfPassenger" value={{totolP}}
+            name="noOfPassenger" id="noOfPassenger" readonly>
+    </div>
+
+    <input type=hidden name="meal" [(ngModel)]= "bookingReq.meal" value="1">
+
+    <div class="form-group form-control-sm">
+        <input type="radio" name="typeOfMeal" value="0" onclick="setcheckbox()"> Meal: Veg<br>
+        <input type="radio" name="typeOfMeal" value="1" onclick="setcheckbox()"> Meal: Non-Veg<br>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{{this.passengerForm.value | json}}

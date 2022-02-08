@@ -1,0 +1,76 @@
+<h2 style="text-align: center;">Add Flight Record</h2>
+<button routerLink="/adminService" >Go to Admin Service</button>
+<form class="container-sm p-1 my-5 border" (ngSubmit)="onSubmit()">
+    <div class="form-group form-control-sm">
+        <label for="exampleInputNumber">Flight Number</label>
+        <input type="number" class="form-control input-sm" required [(ngModel)]="flight.flightNo" name="flightNo"
+            id="exampleInputNumber" placeholder="Enter flight number">
+    </div>
+    <div class="form-group form-control-sm">
+        <label for="exampleInputAirline">Airline</label>
+        <input type="text" class="form-control" required [(ngModel)]="flight.airline" name="airline"
+            id="exampleInputAirline" placeholder="Enter flight Airline">
+    </div>
+    <div class="form-group form-control-sm">
+        <label for="exampleInputSrc">Flight From</label>
+        <input type="text" class="form-control" required [(ngModel)]="flight.srcLocation" name="srcLocation"
+            id="exampleInputSrc" placeholder="Enter flight from ">
+    </div>
+    <div class="form-group form-control-sm">
+        <label for="exampleInputDest">Flight To</label>
+        <input type="text" class="form-control" required [(ngModel)]="flight.destLocation" name="destLocation"
+            id="exampleInputDest" placeholder="Enter flight to">
+    </div>
+
+    <div class="form-group form-control-sm">
+        <label for="StartDate">Flight Start Date</label>
+        <input type="date" class="form-control" required [(ngModel)]="flight.startDate" name="startDate" id="StartDate"
+            placeholder="Enter flight Start Date[dd-MM-yyyy]">
+    </div>
+
+    <div class="form-group form-control-sm">
+        <label for="endDate">Flight End Date</label>
+        <input type="date" class="form-control" required [(ngModel)]="flight.endDate" name="endDate" id="endDate"
+            placeholder="Enter flight End Date[dd-MM-yyyy]">
+    </div>
+
+    <div class="form-group form-control-sm">
+        <label for="scheduledDays">Flight scheduled Days</label>
+        <select class="form-select" id="scheduledDays" required [(ngModel)]="flight.scheduledDays" name="scheduledDays"
+            multiple>
+            <option value="Sunday">Sunday</option>
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+        </select>
+    </div>
+
+    <div class="form-group form-control-sm">
+        <label for="instrument">Flight instrument</label>
+        <input type="text" class="form-control" required [(ngModel)]="flight.instrument" name="instrument" id="instrument"
+            placeholder="Enter flight instrument">
+    </div>
+
+    <div class="form-group form-control-sm">
+        <label for="noOfBusinessClassSeats">Number of Business Class Seats</label>
+        <input type="number" class="form-control input-sm" required [(ngModel)]="flight.noOfBusinessClassSeats" name="noOfBusinessClassSeats"
+            id="noOfBusinessClassSeats" placeholder="Enter no of Business Class Seats">
+    </div>
+
+    <div class="form-group form-control-sm">
+        <label for="noOfNonBusinessClassSeats">Number of Non Business Class Seats</label>
+        <input type="number" class="form-control input-sm" required [(ngModel)]="flight.noOfNonBusinessClassSeats" name="noOfNonBusinessClassSeats"
+            id="noOfNonBusinessClassSeats" placeholder="Enter no of Non Business Class Seats">
+    </div>
+
+    <div class="form-group form-control-sm">
+        <label for="price">Ticket Price</label>
+        <input type="number" class="form-control input-sm" required [(ngModel)]="flight.price" name="price"
+            id="price" placeholder="Enter ticket price">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

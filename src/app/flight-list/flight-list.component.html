@@ -1,0 +1,27 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>List of Flights</h2>
+        <button routerLink="/adminService" >Go to Admin Service</button>
+    </div>
+    
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Flight ID</th>
+                    <th>Flight Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let flight of flights |async">
+                    <td>{{flight.date}}</td>
+                    <td>{{flight.flightId}}</td>
+                    <td>{{flight.flightName}}</td>
+                    <td>{{flight.fare}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

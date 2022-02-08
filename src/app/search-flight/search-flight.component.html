@@ -1,0 +1,39 @@
+<h2 style="text-align: center;">Search Flight </h2>
+<button routerLink="/userService">Go to User Service</button>
+<form class="container-sm p-1 my-5 border"  (ngSubmit)="onSubmit()">
+    <div class="form-group form-control-sm">
+        <label for="date">Date</label>
+        <input type="date" class="form-control input-sm" required [(ngModel)]="userSearch.date" name="date" id="date"
+            placeholder="Enter date ">
+    </div>
+    <div class="form-group form-control-sm">
+        <label for="flightFrom">Flight from</label>
+        <input type="text" class="form-control" required [(ngModel)]="userSearch.srcLocation" name="srcLocation"
+            id="flightFrom" placeholder="Enter flight from location">
+    </div>
+    <div class="form-group form-control-sm">
+        <label for="exampleInputDest">Flight To</label>
+        <input type="text" class="form-control" required [(ngModel)]="userSearch.destLocation" name="destLocation"
+            id="exampleInputDest" placeholder="Enter flight to">
+    </div>
+
+    <div class="form-group form-control-sm">
+        <div>
+            <input type="radio" id="roundTrip" name="tripType" value="true" [(ngModel)]="userSearch.roundTrip">
+            <label for="roundTrip">Round Trip</label><br>
+        </div>
+        <div>
+            <input type="radio" id="css" name="tripType" value="false" [(ngModel)]="userSearch.oneWayTrip" checked>
+            <label for="css">One Way Trip</label><br>
+        </div>
+    </div>
+
+    <button type="submit"  class="btn btn-primary">Search Flight</button>
+
+<!-- 
+    <button type="submit" [state]="userSearch"  routerLink="/searchResult" routerLinkActive="active"
+        class="btn btn-primary">Search Flight</button> -->
+
+</form>
+
+<!-- [state]="userSearch" -->

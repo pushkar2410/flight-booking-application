@@ -1,0 +1,19 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Cancel Booking Ticket</h2>
+        <button class="form-group form-control-sm" routerLink="/userService">Go to User Service</button>
+    </div>
+    <br>
+
+    <div class="container">
+        <input type="text" [(ngModel)]="bookRes.pnrNumber" name="pnrNumber" placeholder="Enter PNR Number"
+            class="form-control rounded">
+        <br>
+        <button type="button" class="btn btn-outline-primary" (click)="cancelBooking()">Cancel Booking</button>
+
+
+    </div>
+
+    <ng-template [ngIf]= "isDeleted">
+        <div style="color: red;"> Booking With {{bookRes.pnrNumber}} is Cancelled !!</div>
+    </ng-template>

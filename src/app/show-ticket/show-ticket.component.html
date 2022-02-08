@@ -1,0 +1,59 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Your Booking Ticket</h2>
+        <button class= "form-group form-control-sm" routerLink="/userService" >Go to User Service</button>
+    </div>
+    <br>
+    <div class="input-group">
+        <input type="text" [(ngModel)]="bookRes.pnrNumber" name="pnrNumber" placeholder="Enter PNR Number" class="form-control rounded">
+        <button type="button" class="btn btn-outline-primary" (click)="getPnr()" >Search</button>
+    </div>
+    <div class="content-center ">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>PNR Number</th>
+                    <th>Flight ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>noOfPassenger</th>
+                    <th>meal</th>
+                    <th>typeOfMeal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr  >
+                    <td>{{bookingResult.pnrNumber}}</td>
+                    <td>{{bookingResult.flightId}}</td>
+                    <td>{{bookingResult.name}}</td>
+                    <td>{{bookingResult.email}}</td>
+                    
+                    <td>{{bookingResult.noOfPassenger}}</td>
+                    <td>{{bookingResult.meal}}</td>
+                    <td>{{bookingResult.typeOfMeal}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>Seat No</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pass of bookingResult.passengers" >
+                    <td>{{pass.firstName}}</td>
+                    <td>{{pass.lastName}}</td>
+                    <td>{{pass.gender}}</td>
+                    <td>{{pass.age}}</td>
+                    <td>{{pass.seatNo}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

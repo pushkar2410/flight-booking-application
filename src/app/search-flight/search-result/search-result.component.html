@@ -1,0 +1,29 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>List of Flights</h2>
+        <button routerLink="/userService" >Go to User Service</button>
+    </div>
+    
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Flight ID</th>
+                    <th>Flight Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let flight of userS">
+                    <td>{{flight.date}}</td>
+                    <td>{{flight.flightId}}</td>
+                    <td>{{flight.flightName}}</td>
+                    <td>{{flight.fare}}</td>
+                    <td><button routerLink="/bookTicket" [state]="flight" routerLinkActive="active">Book</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

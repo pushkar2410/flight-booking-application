@@ -1,0 +1,62 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Your Booking History</h2>
+        <button class="form-group form-control-sm" routerLink="/userService">Go to User Service</button>
+    </div>
+    <br>
+    <div class="input-group">
+        <input type="text" [(ngModel)]="bookRes.email" name="email" placeholder="Enter Email ID"
+            class="form-control rounded">
+        <button type="button" class="btn btn-outline-primary" (click)="getHistory()">Get History</button>
+    </div>
+    <div class="content-center ">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>PNR Number</th>
+                    <th>Flight ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>noOfPassenger</th>
+                    <th>meal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let history of bookingHistory let i = index">
+                    <td>{{bookingHistory[i].pnrNumber}}</td>
+                    <td>{{bookingHistory[i].flightId}}</td>
+                    <td>{{bookingHistory[i].name}}</td>
+                    <td>{{bookingHistory[i].email}}</td>
+                    <td>{{bookingHistory[i].noOfPassenger}}</td>
+                    <td>{{bookingHistory[i].meal}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>Seat No</th>
+                    <th>Flight ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let history of bookingHistory let i = index">
+                    
+                    <tr *ngFor="let pass of bookingHistory[i].passengers">
+                        <td>{{pass.firstName}}</td>
+                        <td>{{pass.lastName}}</td>
+                        <td>{{pass.gender}}</td>
+                        <td>{{pass.age}}</td>
+                        <td>{{pass.seatNo}}</td>
+                        <td>{{bookingHistory[i].flightId}}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>
